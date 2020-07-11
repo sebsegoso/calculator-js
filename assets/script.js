@@ -115,7 +115,3 @@ function resolver() {
     reset();
     resultado.textContent = res;
 }
-
-function resizeButton(){
-    
-}
