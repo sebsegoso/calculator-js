@@ -1,5 +1,5 @@
-var operandoA;
-var operandoB;
+var valorUno;
+var valorDos;
 var operacion;
 
 function inicio() {
@@ -23,10 +23,8 @@ function inicio() {
     var resultado = document.getElementById("resultado");
 
     //Click
-
-     cero.onclick = function (e) {        
-    
-    resultado.textContent = resultado.textContent + "0";
+    cero.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "0";
     }
     uno.onclick = function (e) {
         resultado.textContent = resultado.textContent + "1";
@@ -59,27 +57,27 @@ function inicio() {
         reset();
     }
     suma.onclick = function (e) {
-        operandoa = resultado.textContent;
+        valorUno = resultado.textContent;
         operacion = "+";
         limpiar();
     }
     resta.onclick = function (e) {
-        operandoa = resultado.textContent;
+        valorUno = resultado.textContent;
         operacion = "-";
         limpiar();
     }
     multiplicacion.onclick = function (e) {
-        operandoa = resultado.textContent;
+        valorUno = resultado.textContent;
         operacion = "*";
         limpiar();
     }
     division.onclick = function (e) {
-        operandoa = resultado.textContent;
+        valorUno = resultado.textContent;
         operacion = "/";
         limpiar();
     }
     igual.onclick = function (e) {
-        operandob = resultado.textContent;
+        valorDos = resultado.textContent;
         resolver();
     }
 }
@@ -87,11 +85,11 @@ function inicio() {
 function limpiar() {
     resultado.textContent = "";
 }
-
+//Funcion reset para reiniciar los dos valores y la operación
 function reset() {
     resultado.textContent = "";
-    operandoa = 0;
-    operandob = 0;
+    valorUno = 0;
+    valorDos = 0;
     operacion = "";
 }
 
@@ -99,21 +97,25 @@ function resolver() {
     var res = 0;
     switch (operacion) {
         case "+":
-            res = parseFloat(operandoa) + parseFloat(operandob);
+            res = parseFloat(valorUno) + parseFloat(valorDos);
             break;
 
         case "-":
-            res = parseFloat(operandoa) - parseFloat(operandob);
+            res = parseFloat(valorUno) - parseFloat(valorDos);
             break;
 
         case "*":
-            res = parseFloat(operandoa) * parseFloat(operandob);
+            res = parseFloat(valorUno) * parseFloat(valorDos);
             break;
 
         case "/":
-            res = parseFloat(operandoa) / parseFloat(operandob);
+            res = parseFloat(valorUno) / parseFloat(valorDos);
             break;
     }
     reset();
     resultado.textContent = res;
+}
+
+function resizeButton(){
+    
 }
